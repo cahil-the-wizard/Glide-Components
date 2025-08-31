@@ -1,0 +1,188 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Components/Icons/Usage Guide" />
+
+# Icons Usage Guide
+
+The Glide Components library includes 1,100+ beautiful icons from UntitledUI, providing consistent iconography across your applications.
+
+## Installation & Setup
+
+### React/Web Projects
+```bash
+npm install @untitledui/icons
+```
+
+```tsx
+import Home from "@untitledui/icons/Home01";
+import User from "@untitledui/icons/User01";
+import Settings from "@untitledui/icons/Settings01";
+
+function MyComponent() {
+  return (
+    <div>
+      <Home size={24} color="#000" />
+      <User size={20} />
+      <Settings />
+    </div>
+  );
+}
+```
+
+### SwiftUI Projects
+
+Icons are integrated into the GlideIcon component with convenient static methods:
+
+```swift
+import SwiftUI
+import GlideComponents
+
+struct ContentView: View {
+    var body: some View {
+        HStack(spacing: 16) {
+            // Using convenience methods
+            GlideIcon.home(size: .lg)
+            GlideIcon.user(size: .md, color: GlideColors.primary)
+            GlideIcon.settings()
+            
+            // Using generic initializer
+            GlideIcon("bell-01", size: .base, color: GlideColors.Error._500)
+        }
+    }
+}
+```
+
+## Icon Sizes
+
+We provide 7 standardized sizes that work across platforms:
+
+| Size | Dimensions | Usage |
+|------|------------|-------|
+| `.xs` | 12×12px | Small indicators, badges |
+| `.sm` | 14×14px | Inline text icons |
+| `.base` | 16×16px | Default size, buttons |
+| `.md` | 20×20px | Form controls, navigation |
+| `.lg` | 24×24px | Primary actions, headers |
+| `.xl` | 32×32px | Large buttons, cards |
+| `.xxl` | 40×40px | Hero sections, empty states |
+
+## Color Usage
+
+### Semantic Colors
+Use design token colors for consistent theming:
+
+```swift
+// SwiftUI Examples
+GlideIcon.heart(color: GlideColors.Error._500)     // Red heart
+GlideIcon.star(color: GlideColors.Warning._400)    // Yellow star  
+GlideIcon.checkmark(color: GlideColors.Success._500) // Green checkmark
+```
+
+```tsx
+// React Examples
+<Heart size={20} color="var(--color-error-500)" />
+<Star size={20} color="var(--color-warning-400)" />
+<Check size={20} color="var(--color-success-500)" />
+```
+
+### Text Colors
+For icons that should match surrounding text:
+
+```swift
+GlideIcon.user(color: GlideColors.textPrimary)     // Primary text color
+GlideIcon.settings(color: GlideColors.textSecondary) // Secondary text color
+```
+
+## Common Usage Patterns
+
+### Navigation Icons
+```swift
+TabView {
+    HomeView()
+        .tabItem {
+            GlideIcon.home(size: .md)
+            Text("Home")
+        }
+    
+    ProfileView()
+        .tabItem {
+            GlideIcon.user(size: .md) 
+            Text("Profile")
+        }
+}
+```
+
+### Button Icons
+```swift
+GlideButton("Save Changes", style: .primary) {
+    // Save action
+}
+.overlay(alignment: .leading) {
+    GlideIcon.checkmark(size: .sm, color: .white)
+        .padding(.leading, 16)
+}
+```
+
+### Form Controls
+```swift
+HStack {
+    GlideIcon.search(size: .base, color: GlideColors.textSecondary)
+    GlideTextField("Search...", text: $searchText)
+}
+```
+
+### Status Indicators
+```swift
+HStack(spacing: 8) {
+    GlideIcon.checkmark(size: .sm, color: GlideColors.Success._500)
+    Text("Connected")
+        .font(GlideTypography.bodySmall)
+        .foregroundColor(GlideColors.Success._700)
+}
+```
+
+## Available Icon Categories
+
+The UntitledUI icon library includes comprehensive coverage across:
+
+- **Interface**: Navigation, controls, actions (arrows, plus, minus, x, check)
+- **Communication**: Mail, phone, chat, notifications
+- **Media**: Play, pause, volume, camera, image
+- **Files**: Documents, folders, upload, download
+- **Users**: Person, groups, profile, authentication
+- **Business**: Charts, analytics, finance, shopping
+- **Technology**: Code, database, cloud, devices
+- **General**: Home, settings, search, calendar, clock
+
+## Best Practices
+
+### Consistency
+- Use the same icon for the same action throughout your app
+- Stick to one icon style (don't mix outline and filled)
+- Maintain consistent sizing within similar UI elements
+
+### Accessibility  
+- Always provide text labels for standalone icons
+- Use appropriate color contrast ratios
+- Consider providing alternative text descriptions
+
+### Performance
+- Import only the icons you need to reduce bundle size
+- Use appropriate sizes to avoid scaling artifacts
+- Cache frequently used icons
+
+### Visual Hierarchy
+- Use larger icons for primary actions
+- Use color to indicate state (active, inactive, error)
+- Group related icons with consistent spacing
+
+## Icon Naming Convention
+
+UntitledUI icons follow a systematic naming pattern:
+
+- Base name describes the concept: `home`, `user`, `mail`
+- Numbered variants: `home-01`, `home-02` (different styles)
+- State variants: `bell-off`, `eye-off` (disabled states)
+- Action variants: `plus-circle`, `minus-square` (combined actions)
+
+This makes it easy to find the right icon and understand variations available.

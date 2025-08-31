@@ -1,0 +1,256 @@
+import { Meta } from '@storybook/blocks';
+import { colorTokens, typographyTokens } from './tokens';
+
+<Meta title="Design Tokens/Overview" />
+
+# Design Tokens
+
+Design tokens are the visual design atoms of our design system. They store visual design attributes like colors, typography, spacing, and more.
+
+## Color Palette
+
+Our color system includes semantic colors for different states and contexts, as well as neutral grays for light and dark modes.
+
+### Gray Colors (Light Mode)
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))', gap: '16px', marginBottom: '32px' }}>
+  {Object.entries(colorTokens.grayLight).map(([key, value]) => (
+    <div key={key} style={{ textAlign: 'center' }}>
+      <div 
+        style={{ 
+          width: '100px', 
+          height: '60px', 
+          backgroundColor: value, 
+          borderRadius: '8px', 
+          border: '1px solid #e5e5e5',
+          margin: '0 auto 8px'
+        }} 
+      />
+      <div style={{ fontSize: '12px', fontWeight: '600' }}>{key}</div>
+      <div style={{ fontSize: '10px', color: '#666', fontFamily: 'monospace' }}>{value}</div>
+    </div>
+  ))}
+</div>
+
+### Error Colors
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))', gap: '16px', marginBottom: '32px' }}>
+  {Object.entries(colorTokens.error).map(([key, value]) => (
+    <div key={key} style={{ textAlign: 'center' }}>
+      <div 
+        style={{ 
+          width: '100px', 
+          height: '60px', 
+          backgroundColor: value, 
+          borderRadius: '8px', 
+          border: '1px solid #e5e5e5',
+          margin: '0 auto 8px'
+        }} 
+      />
+      <div style={{ fontSize: '12px', fontWeight: '600' }}>{key}</div>
+      <div style={{ fontSize: '10px', color: '#666', fontFamily: 'monospace' }}>{value}</div>
+    </div>
+  ))}
+</div>
+
+### Warning Colors
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))', gap: '16px', marginBottom: '32px' }}>
+  {Object.entries(colorTokens.warning).map(([key, value]) => (
+    <div key={key} style={{ textAlign: 'center' }}>
+      <div 
+        style={{ 
+          width: '100px', 
+          height: '60px', 
+          backgroundColor: value, 
+          borderRadius: '8px', 
+          border: '1px solid #e5e5e5',
+          margin: '0 auto 8px'
+        }} 
+      />
+      <div style={{ fontSize: '12px', fontWeight: '600' }}>{key}</div>
+      <div style={{ fontSize: '10px', color: '#666', fontFamily: 'monospace' }}>{value}</div>
+    </div>
+  ))}
+</div>
+
+### Success Colors
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))', gap: '16px', marginBottom: '32px' }}>
+  {Object.entries(colorTokens.success).map(([key, value]) => (
+    <div key={key} style={{ textAlign: 'center' }}>
+      <div 
+        style={{ 
+          width: '100px', 
+          height: '60px', 
+          backgroundColor: value, 
+          borderRadius: '8px', 
+          border: '1px solid #e5e5e5',
+          margin: '0 auto 8px'
+        }} 
+      />
+      <div style={{ fontSize: '12px', fontWeight: '600' }}>{key}</div>
+      <div style={{ fontSize: '10px', color: '#666', fontFamily: 'monospace' }}>{value}</div>
+    </div>
+  ))}
+</div>
+
+## Typography Scale
+
+Our typography system is built with two primary typefaces: **Futura** for titles and **Inter** for body text and UI elements.
+
+### Title Styles
+<div style={{ marginBottom: '32px' }}>
+  <div style={{ 
+    fontSize: `${typographyTokens.title.hero.fontSize}px`, 
+    fontFamily: typographyTokens.title.hero.fontFamily,
+    fontWeight: typographyTokens.title.hero.fontWeight,
+    lineHeight: `${typographyTokens.title.hero.lineHeight}px`,
+    letterSpacing: `${typographyTokens.title.hero.letterSpacing}px`,
+    marginBottom: '16px'
+  }}>
+    Title Hero (72px)
+  </div>
+  <div style={{ 
+    fontSize: `${typographyTokens.title.page.fontSize}px`, 
+    fontFamily: typographyTokens.title.page.fontFamily,
+    fontWeight: typographyTokens.title.page.fontWeight,
+    lineHeight: `${typographyTokens.title.page.lineHeight}px`,
+    letterSpacing: `${typographyTokens.title.page.letterSpacing}px`,
+    marginBottom: '16px'
+  }}>
+    Title Page (48px)
+  </div>
+  <div style={{ 
+    fontSize: `${typographyTokens.title.subtitle.fontSize}px`, 
+    fontFamily: typographyTokens.title.subtitle.fontFamily,
+    fontWeight: typographyTokens.title.subtitle.fontWeight,
+    lineHeight: `${typographyTokens.title.subtitle.lineHeight}px`,
+    letterSpacing: `${typographyTokens.title.subtitle.letterSpacing}px`,
+    marginBottom: '16px'
+  }}>
+    Subtitle (32px)
+  </div>
+</div>
+
+### Heading Styles
+<div style={{ marginBottom: '32px' }}>
+  <div style={{ 
+    fontSize: `${typographyTokens.heading.heading.fontSize}px`, 
+    fontFamily: typographyTokens.heading.heading.fontFamily,
+    fontWeight: typographyTokens.heading.heading.fontWeight,
+    lineHeight: `${typographyTokens.heading.heading.lineHeight}px`,
+    letterSpacing: `${typographyTokens.heading.heading.letterSpacing}px`,
+    marginBottom: '16px'
+  }}>
+    Heading (24px)
+  </div>
+  <div style={{ 
+    fontSize: `${typographyTokens.heading.subheading.fontSize}px`, 
+    fontFamily: typographyTokens.heading.subheading.fontFamily,
+    fontWeight: typographyTokens.heading.subheading.fontWeight,
+    lineHeight: `${typographyTokens.heading.subheading.lineHeight}px`,
+    letterSpacing: `${typographyTokens.heading.subheading.letterSpacing}px`,
+    marginBottom: '16px'
+  }}>
+    Subheading (20px)
+  </div>
+</div>
+
+### Body Text Styles
+<div style={{ marginBottom: '32px' }}>
+  <div style={{ 
+    fontSize: `${typographyTokens.body.base.fontSize}px`, 
+    fontFamily: typographyTokens.body.base.fontFamily,
+    fontWeight: typographyTokens.body.base.fontWeight,
+    lineHeight: `${typographyTokens.body.base.lineHeight}px`,
+    letterSpacing: `${typographyTokens.body.base.letterSpacing}px`,
+    marginBottom: '8px'
+  }}>
+    Body Base (16px) - Regular text for paragraphs and content
+  </div>
+  <div style={{ 
+    fontSize: `${typographyTokens.body.strong.fontSize}px`, 
+    fontFamily: typographyTokens.body.strong.fontFamily,
+    fontWeight: typographyTokens.body.strong.fontWeight,
+    lineHeight: `${typographyTokens.body.strong.lineHeight}px`,
+    letterSpacing: `${typographyTokens.body.strong.letterSpacing}px`,
+    marginBottom: '8px'
+  }}>
+    Body Strong (16px) - Bold text for emphasis
+  </div>
+  <div style={{ 
+    fontSize: `${typographyTokens.body.emphasis.fontSize}px`, 
+    fontFamily: typographyTokens.body.emphasis.fontFamily,
+    fontWeight: typographyTokens.body.emphasis.fontWeight,
+    fontStyle: typographyTokens.body.emphasis.fontStyle,
+    lineHeight: `${typographyTokens.body.emphasis.lineHeight}px`,
+    letterSpacing: `${typographyTokens.body.emphasis.letterSpacing}px`,
+    marginBottom: '8px'
+  }}>
+    Body Emphasis (16px) - Italic text for subtle emphasis
+  </div>
+  <div style={{ 
+    fontSize: `${typographyTokens.body.small.fontSize}px`, 
+    fontFamily: typographyTokens.body.small.fontFamily,
+    fontWeight: typographyTokens.body.small.fontWeight,
+    lineHeight: `${typographyTokens.body.small.lineHeight}px`,
+    letterSpacing: `${typographyTokens.body.small.letterSpacing}px`,
+    marginBottom: '8px'
+  }}>
+    Body Small (14px) - Secondary text and captions
+  </div>
+  <div style={{ 
+    fontSize: `${typographyTokens.body.code.fontSize}px`, 
+    fontFamily: typographyTokens.body.code.fontFamily,
+    fontWeight: typographyTokens.body.code.fontWeight,
+    lineHeight: `${typographyTokens.body.code.lineHeight}px`,
+    letterSpacing: `${typographyTokens.body.code.letterSpacing}px`,
+    marginBottom: '8px'
+  }}>
+    Body Code (16px) - Monospace for code snippets
+  </div>
+</div>
+
+## Usage in SwiftUI
+
+```swift
+import SwiftUI
+import GlideComponents
+
+struct ExampleView: View {
+    var body: some View {
+        VStack(spacing: 16) {
+            Text("Welcome")
+                .font(GlideTypography.titlePage)
+                .foregroundColor(GlideColors.textPrimary)
+            
+            GlideCard {
+                VStack(alignment: .leading, spacing: 12) {
+                    Text("Card Content")
+                        .font(GlideTypography.heading)
+                        .foregroundColor(GlideColors.textPrimary)
+                    
+                    Text("This card uses our design tokens for consistent styling.")
+                        .font(GlideTypography.body)
+                        .foregroundColor(GlideColors.textSecondary)
+                }
+            }
+        }
+    }
+}
+```
+
+## Usage in CSS
+
+All design tokens are available as CSS custom properties:
+
+```css
+.title {
+  font-size: var(--typography-title-page-font-size);
+  font-family: var(--typography-title-page-font-family);
+  color: var(--color-gray-light-900);
+}
+
+.card {
+  background-color: var(--color-gray-light-25);
+  border: 1px solid var(--color-gray-light-200);
+  border-radius: 12px;
+}
+```

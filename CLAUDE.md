@@ -1,0 +1,1 @@
+- Whenever you are creating a new component, you must use existing styles in our storybook before creating a new style. If a new style is required, consult with me first.

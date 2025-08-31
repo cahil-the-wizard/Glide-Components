@@ -1,0 +1,66 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Introduction" />
+
+# Glide Components
+
+Welcome to the **Glide Components** library! This is a comprehensive SwiftUI component library designed to provide consistent, accessible, and beautiful UI components for your applications.
+
+## What's Inside
+
+Our component library includes:
+
+- **Buttons** - Multiple styles (primary, secondary, destructive) and sizes
+- **Cards** - Flexible container components with consistent styling
+- **Text Fields** - Styled input fields with various keyboard types
+
+## Getting Started
+
+### Installation
+
+Add this package to your Xcode project:
+
+```swift
+dependencies: [
+    .package(path: "path/to/GlideComponents")
+]
+```
+
+### Basic Usage
+
+```swift
+import SwiftUI
+import GlideComponents
+
+struct ContentView: View {
+    @State private var text = ""
+    
+    var body: some View {
+        GlideCard {
+            VStack(spacing: 16) {
+                Text("Welcome to Glide")
+                    .font(.title2)
+                    .fontWeight(.bold)
+                
+                GlideTextField("Enter text", text: $text)
+                
+                GlideButton("Submit", style: .primary) {
+                    print("Submitted: \\(text)")
+                }
+            }
+        }
+        .padding()
+    }
+}
+```
+
+## Design System
+
+All components follow consistent design principles:
+
+- **iOS-native styling** that adapts to system appearance
+- **Accessibility first** with proper VoiceOver support
+- **Flexible customization** while maintaining design consistency
+- **SwiftUI best practices** with proper state management
+
+Explore the components in the sidebar to see all available options and configurations!
