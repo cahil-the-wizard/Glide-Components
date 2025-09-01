@@ -61,7 +61,7 @@ struct RoundedCorners: Shape {
     }
 }
 
-@available(iOS 15.0, macOS 12.0, *)
+@available(iOS 15.0, macOS 13.0, *)
 public struct GlideInput: View {
     private let placeholder: String
     @Binding private var text: String
@@ -144,7 +144,7 @@ public struct GlideInput: View {
             .padding(EdgeInsets(top: 16, leading: 0, bottom: 12, trailing: 0))
             .background(Color.white)
         }
-        .frame(maxWidth: 450, minWidth: 280)
+        .frame(minWidth: 280, maxWidth: 450)
         .background(Color.white)
         .clipShape(
             RoundedCorners(topLeft: 20, topRight: 20, bottomLeft: 0, bottomRight: 0)
@@ -161,7 +161,7 @@ public struct GlideInput: View {
 }
 
 // MARK: - Convenience Initializers
-@available(iOS 15.0, macOS 12.0, *)
+@available(iOS 15.0, macOS 13.0, *)
 public extension GlideInput {
     static func standard(text: Binding<String>, onSubmit: @escaping () -> Void) -> GlideInput {
         GlideInput(text: text, onSubmit: onSubmit)

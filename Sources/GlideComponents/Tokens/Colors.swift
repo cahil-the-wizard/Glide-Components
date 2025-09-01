@@ -1,4 +1,7 @@
 import SwiftUI
+#if canImport(UIKit)
+import UIKit
+#endif
 
 @available(iOS 15.0, macOS 12.0, *)
 public struct GlideColors {
@@ -97,7 +100,13 @@ public struct GlideColors {
     }
     
     public static var background: Color {
-        return Color(.systemBackground)
+        #if os(iOS)
+        return Color(UIColor.systemBackground)
+        #elseif os(macOS)
+        return Color(NSColor.controlBackgroundColor)
+        #else
+        return Color.white
+        #endif
     }
     
     public static var surface: Color {

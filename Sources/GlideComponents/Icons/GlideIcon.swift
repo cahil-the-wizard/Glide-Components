@@ -35,20 +35,12 @@ public struct GlideIcon: View {
     }
     
     public var body: some View {
-        Group {
-            if let bundlePath = Bundle.module.path(forResource: iconName, ofType: "svg", inDirectory: "icons") {
-                // For now, we'll use SF Symbols as fallback since SwiftUI doesn't natively support SVG
-                // In a real implementation, you'd use a library like SVGKit or convert to PDF/Image
-                Image(systemName: mapToSFSymbol(iconName))
-                    .font(.system(size: size.dimension - 2))
-            } else {
-                // Fallback to SF Symbol
-                Image(systemName: mapToSFSymbol(iconName))
-                    .font(.system(size: size.dimension - 2))
-            }
-        }
-        .foregroundColor(color ?? GlideColors.textPrimary)
-        .frame(width: size.dimension, height: size.dimension)
+        // For now, we'll use SF Symbols as fallback since SwiftUI doesn't natively support SVG
+        // In a real implementation, you'd use a library like SVGKit or convert to PDF/Image
+        Image(systemName: mapToSFSymbol(iconName))
+            .font(.system(size: size.dimension - 2))
+            .foregroundColor(color ?? GlideColors.textPrimary)
+            .frame(width: size.dimension, height: size.dimension)
     }
     
     private func mapToSFSymbol(_ iconName: String) -> String {
