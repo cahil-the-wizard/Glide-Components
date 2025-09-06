@@ -1,0 +1,5 @@
+{
+  "buildCommand": "cd Storybook && npm run build-storybook",
+  "outputDirectory": "Storybook/storybook-static",
+  "installCommand": "cd Storybook && npm install"
+}

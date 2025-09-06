@@ -1,26 +1,26 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 // Import popular UntitledUI icons using correct names
-import Home01 from "@untitledui/icons/Home01";
-import User01 from "@untitledui/icons/User01";
-import Settings01 from "@untitledui/icons/Settings01";
-import Bell01 from "@untitledui/icons/Bell01";
-import Mail01 from "@untitledui/icons/Mail01";
-import SearchMd from "@untitledui/icons/SearchMd";
-import Heart from "@untitledui/icons/Heart";
-import Star01 from "@untitledui/icons/Star01";
-import ChevronLeft from "@untitledui/icons/ChevronLeft";
-import ChevronRight from "@untitledui/icons/ChevronRight";
-import ChevronUp from "@untitledui/icons/ChevronUp";
-import ChevronDown from "@untitledui/icons/ChevronDown";
-import Plus from "@untitledui/icons/Plus";
-import Minus from "@untitledui/icons/Minus";
-import X from "@untitledui/icons/X";
-import Check from "@untitledui/icons/Check";
-import Calendar from "@untitledui/icons/Calendar";
-import Clock from "@untitledui/icons/Clock";
-import Download01 from "@untitledui/icons/Download01";
-import Upload01 from "@untitledui/icons/Upload01";
+import { Home01 } from "@untitledui/icons/Home01";
+import { User01 } from "@untitledui/icons/User01";
+import { Settings01 } from "@untitledui/icons/Settings01";
+import { Bell01 } from "@untitledui/icons/Bell01";
+import { Mail01 } from "@untitledui/icons/Mail01";
+import { SearchMd } from "@untitledui/icons/SearchMd";
+import { Heart } from "@untitledui/icons/Heart";
+import { Star01 } from "@untitledui/icons/Star01";
+import { ChevronLeft } from "@untitledui/icons/ChevronLeft";
+import { ChevronRight } from "@untitledui/icons/ChevronRight";
+import { ChevronUp } from "@untitledui/icons/ChevronUp";
+import { ChevronDown } from "@untitledui/icons/ChevronDown";
+import { Plus } from "@untitledui/icons/Plus";
+import { Minus } from "@untitledui/icons/Minus";
+import { X } from "@untitledui/icons/X";
+import { Check } from "@untitledui/icons/Check";
+import { Calendar } from "@untitledui/icons/Calendar";
+import { Clock } from "@untitledui/icons/Clock";
+import { Download01 } from "@untitledui/icons/Download01";
+import { Upload01 } from "@untitledui/icons/Upload01";
 
 // Mock GlideIcon component for Storybook
 const GlideIcon = ({ 
