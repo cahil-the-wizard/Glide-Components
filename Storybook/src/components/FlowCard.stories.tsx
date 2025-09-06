@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { CheckCircle } from "@untitledui/icons/CheckCircle";
-import { Hourglass03 } from "@untitledui/icons/Hourglass03";
+import { CheckmarkCircleIcon as CheckCircle } from "@serviette/sf-symbols-react";
+import { HourglassBottomhalfFilledIcon as Hourglass03 } from "@serviette/sf-symbols-react";
+import { SemanticIconSizes, IconSizes } from '../design-tokens/iconSizes';
 
 const GlideFlowCard = ({ 
   title = "Job Application",
@@ -14,6 +15,7 @@ const GlideFlowCard = ({
   duration?: string;
   onClick?: () => void;
 }) => {
+  const iconSize = SemanticIconSizes.card; // 18px
   return (
     <div 
       onClick={onClick}
@@ -60,7 +62,17 @@ const GlideFlowCard = ({
             gap: '4px',
             display: 'flex'
           }}>
-            <CheckCircle size={18} color="var(--color-gray-light-800, #252B37)" />
+            <span style={{ 
+              width: iconSize, 
+              height: iconSize, 
+              color: "var(--color-gray-light-800, #252B37)",
+              fontSize: iconSize,
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}>
+              <CheckCircle weight="medium" />
+            </span>
             <div style={{
               color: 'var(--color-gray-light-800, #252B37)',
               fontSize: '14px',
@@ -78,7 +90,17 @@ const GlideFlowCard = ({
             gap: '4px',
             display: 'flex'
           }}>
-            <Hourglass03 size={18} color="var(--color-gray-light-800, #252B37)" />
+            <span style={{ 
+              width: IconSizes.xxs, 
+              height: IconSizes.xxs, 
+              color: "var(--color-gray-light-800, #252B37)",
+              fontSize: IconSizes.xxs,
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}>
+              <Hourglass03 weight="medium" />
+            </span>
             <div style={{
               color: 'var(--color-gray-light-800, #252B37)',
               fontSize: '14px',

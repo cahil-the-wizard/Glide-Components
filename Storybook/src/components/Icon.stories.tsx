@@ -1,34 +1,36 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-// Import popular UntitledUI icons using correct names
-import { Home01 } from "@untitledui/icons/Home01";
-import { User01 } from "@untitledui/icons/User01";
-import { Settings01 } from "@untitledui/icons/Settings01";
-import { Bell01 } from "@untitledui/icons/Bell01";
-import { Mail01 } from "@untitledui/icons/Mail01";
-import { SearchMd } from "@untitledui/icons/SearchMd";
-import { Heart } from "@untitledui/icons/Heart";
-import { Star01 } from "@untitledui/icons/Star01";
-import { ChevronLeft } from "@untitledui/icons/ChevronLeft";
-import { ChevronRight } from "@untitledui/icons/ChevronRight";
-import { ChevronUp } from "@untitledui/icons/ChevronUp";
-import { ChevronDown } from "@untitledui/icons/ChevronDown";
-import { Plus } from "@untitledui/icons/Plus";
-import { Minus } from "@untitledui/icons/Minus";
-import { X } from "@untitledui/icons/X";
-import { Check } from "@untitledui/icons/Check";
-import { Calendar } from "@untitledui/icons/Calendar";
-import { Clock } from "@untitledui/icons/Clock";
-import { Download01 } from "@untitledui/icons/Download01";
-import { Upload01 } from "@untitledui/icons/Upload01";
+// Import popular SF Symbols
+import { 
+  HouseIcon as House,
+  PersonIcon as Person,
+  GearIcon as Gear,
+  BellIcon,
+  EnvelopeIcon as Envelope,
+  MagnifyingglassIcon as Search,
+  HeartIcon,
+  StarIcon,
+  ChevronLeftIcon as ChevronLeft,
+  ChevronRightIcon as ChevronRight,
+  ChevronUpIcon as ChevronUp,
+  ChevronDownIcon as ChevronDown,
+  PlusIcon as Plus,
+  MinusIcon as Minus,
+  XmarkIcon as X,
+  CheckmarkIcon as Check,
+  CalendarIcon as Calendar,
+  ClockIcon as Clock,
+  ArrowDownToLineIcon as Download,
+  ArrowUpToLineIcon as Upload
+} from "@serviette/sf-symbols-react";
 
-// Mock GlideIcon component for Storybook
+// Mock GlideIcon component for Storybook - works with SF Symbols
 const GlideIcon = ({ 
   icon,
   size = 'base',
   color = 'var(--color-gray-light-900)'
 }: {
-  icon: React.ComponentType<{ size?: number; color?: string }>;
+  icon: React.ComponentType<{ weight?: string; className?: string }>;
   size?: 'xs' | 'sm' | 'base' | 'md' | 'lg' | 'xl' | 'xxl';
   color?: string;
 }) => {
@@ -43,16 +45,19 @@ const GlideIcon = ({
   };
 
   const IconComponent = icon;
+  const iconSize = sizeMap[size];
   
   return (
     <div style={{ 
       display: 'inline-flex', 
       alignItems: 'center', 
       justifyContent: 'center',
-      width: sizeMap[size],
-      height: sizeMap[size]
+      width: iconSize,
+      height: iconSize,
+      color: color,
+      fontSize: iconSize
     }}>
-      <IconComponent size={sizeMap[size]} color={color} />
+      <IconComponent weight="medium" />
     </div>
   );
 };
@@ -78,51 +83,51 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Home: Story = {
+export const HomeIcon: Story = {
   args: {
-    icon: Home01,
+    icon: House,
     size: 'base',
   },
 };
 
-export const User: Story = {
+export const UserIcon: Story = {
   args: {
-    icon: User01,
+    icon: Person,
     size: 'base',
   },
 };
 
-export const Settings: Story = {
+export const SettingsIcon: Story = {
   args: {
-    icon: Settings01,
+    icon: Gear,
     size: 'base',
   },
 };
 
 export const Bell: Story = {
   args: {
-    icon: Bell01,
+    icon: BellIcon,
     size: 'base',
   },
 };
 
-export const Mail: Story = {
+export const MailIcon: Story = {
   args: {
-    icon: Mail01,
+    icon: Envelope,
     size: 'base',
   },
 };
 
-export const Search: Story = {
+export const SearchIcon: Story = {
   args: {
-    icon: SearchMd,
+    icon: Search,
     size: 'base',
   },
 };
 
-export const HeartIcon: Story = {
+export const Heart: Story = {
   args: {
-    icon: Heart,
+    icon: HeartIcon,
     size: 'base',
     color: 'var(--color-error-500)',
   },
@@ -130,7 +135,7 @@ export const HeartIcon: Story = {
 
 export const Star: Story = {
   args: {
-    icon: Star01,
+    icon: StarIcon,
     size: 'base',
     color: 'var(--color-warning-400)',
   },
@@ -141,31 +146,31 @@ export const Sizes: Story = {
   render: () => (
     <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
       <div style={{ textAlign: 'center' }}>
-        <GlideIcon icon={Home01} size="xs" />
+        <GlideIcon icon={House} size="xs" />
         <div style={{ fontSize: '12px', marginTop: '4px' }}>xs (12px)</div>
       </div>
       <div style={{ textAlign: 'center' }}>
-        <GlideIcon icon={Home01} size="sm" />
+        <GlideIcon icon={House} size="sm" />
         <div style={{ fontSize: '12px', marginTop: '4px' }}>sm (14px)</div>
       </div>
       <div style={{ textAlign: 'center' }}>
-        <GlideIcon icon={Home01} size="base" />
+        <GlideIcon icon={House} size="base" />
         <div style={{ fontSize: '12px', marginTop: '4px' }}>base (16px)</div>
       </div>
       <div style={{ textAlign: 'center' }}>
-        <GlideIcon icon={Home01} size="md" />
+        <GlideIcon icon={House} size="md" />
         <div style={{ fontSize: '12px', marginTop: '4px' }}>md (20px)</div>
       </div>
       <div style={{ textAlign: 'center' }}>
-        <GlideIcon icon={Home01} size="lg" />
+        <GlideIcon icon={House} size="lg" />
         <div style={{ fontSize: '12px', marginTop: '4px' }}>lg (24px)</div>
       </div>
       <div style={{ textAlign: 'center' }}>
-        <GlideIcon icon={Home01} size="xl" />
+        <GlideIcon icon={House} size="xl" />
         <div style={{ fontSize: '12px', marginTop: '4px' }}>xl (32px)</div>
       </div>
       <div style={{ textAlign: 'center' }}>
-        <GlideIcon icon={Home01} size="xxl" />
+        <GlideIcon icon={House} size="xxl" />
         <div style={{ fontSize: '12px', marginTop: '4px' }}>xxl (40px)</div>
       </div>
     </div>
@@ -176,26 +181,26 @@ export const Sizes: Story = {
 export const IconGrid: Story = {
   render: () => {
     const icons = [
-      { component: Home01, name: 'home-01' },
-      { component: User01, name: 'user-01' },
-      { component: Settings01, name: 'settings-01' },
-      { component: Bell01, name: 'bell-01' },
-      { component: Mail01, name: 'mail-01' },
-      { component: SearchMd, name: 'search-md' },
-      { component: Heart, name: 'heart' },
-      { component: Star01, name: 'star-01' },
-      { component: ChevronLeft, name: 'chevron-left' },
-      { component: ChevronRight, name: 'chevron-right' },
-      { component: ChevronUp, name: 'chevron-up' },
-      { component: ChevronDown, name: 'chevron-down' },
+      { component: House, name: 'house' },
+      { component: Person, name: 'person' },
+      { component: Gear, name: 'gear' },
+      { component: BellIcon, name: 'bell' },
+      { component: Envelope, name: 'envelope' },
+      { component: Search, name: 'magnifyingglass' },
+      { component: HeartIcon, name: 'heart' },
+      { component: StarIcon, name: 'star' },
+      { component: ChevronLeft, name: 'chevron.left' },
+      { component: ChevronRight, name: 'chevron.right' },
+      { component: ChevronUp, name: 'chevron.up' },
+      { component: ChevronDown, name: 'chevron.down' },
       { component: Plus, name: 'plus' },
       { component: Minus, name: 'minus' },
-      { component: X, name: 'x' },
-      { component: Check, name: 'check' },
+      { component: X, name: 'xmark.large' },
+      { component: Check, name: 'checkmark' },
       { component: Calendar, name: 'calendar' },
-      { component: Clock, name: 'clock' },
-      { component: Download01, name: 'download-01' },
-      { component: Upload01, name: 'upload-01' },
+      { component: Clock, name: 'clock.badge.checkmark' },
+      { component: Download, name: 'arrow.down.to.line' },
+      { component: Upload, name: 'arrow.up.to.line' },
     ];
     
     return (
@@ -233,11 +238,11 @@ export const Colors: Story = {
   render: () => (
     <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
       <div style={{ textAlign: 'center' }}>
-        <GlideIcon icon={Heart} size="lg" color="var(--color-error-500)" />
+        <GlideIcon icon={HeartIcon} size="lg" color="var(--color-error-500)" />
         <div style={{ fontSize: '12px', marginTop: '4px' }}>Error</div>
       </div>
       <div style={{ textAlign: 'center' }}>
-        <GlideIcon icon={Star01} size="lg" color="var(--color-warning-400)" />
+        <GlideIcon icon={StarIcon} size="lg" color="var(--color-warning-400)" />
         <div style={{ fontSize: '12px', marginTop: '4px' }}>Warning</div>
       </div>
       <div style={{ textAlign: 'center' }}>
@@ -245,11 +250,11 @@ export const Colors: Story = {
         <div style={{ fontSize: '12px', marginTop: '4px' }}>Success</div>
       </div>
       <div style={{ textAlign: 'center' }}>
-        <GlideIcon icon={Settings01} size="lg" color="var(--color-gray-light-600)" />
+        <GlideIcon icon={Gear} size="lg" color="var(--color-gray-light-600)" />
         <div style={{ fontSize: '12px', marginTop: '4px' }}>Secondary</div>
       </div>
       <div style={{ textAlign: 'center' }}>
-        <GlideIcon icon={Home01} size="lg" color="var(--color-gray-light-900)" />
+        <GlideIcon icon={House} size="lg" color="var(--color-gray-light-900)" />
         <div style={{ fontSize: '12px', marginTop: '4px' }}>Primary</div>
       </div>
     </div>

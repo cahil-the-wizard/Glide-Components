@@ -1,11 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
-import { Home02 } from "@untitledui/icons/Home02";
-import { SearchMd } from "@untitledui/icons/SearchMd";
-import { Plus } from "@untitledui/icons/Plus";
+import { HouseIcon as Home02 } from "@serviette/sf-symbols-react";
+import { MagnifyingglassIcon as SearchMd } from "@serviette/sf-symbols-react";
+import { PlusIcon as Plus } from "@serviette/sf-symbols-react";
+import { IconSizes } from '../design-tokens/iconSizes';
 
 interface TabItem {
-  icon: React.ComponentType<{ size?: number; color?: string }>;
+  icon: React.ComponentType<{ weight?: string; className?: string }>;
   title: string;
 }
 
@@ -50,6 +51,7 @@ const TabItemView = ({
   const textColor = isSelected 
     ? 'var(--color-gray-dark-800)'  // Active/selected - darker
     : 'var(--color-gray-light-500)'; // Inactive - lighter gray
+  const iconSize = IconSizes.lg; // 20px
 
   return (
     <button
@@ -69,15 +71,17 @@ const TabItemView = ({
       }}
     >
       {/* Icon container */}
-      <div style={{
-        display: 'flex',
+      <span style={{
+        width: iconSize,
+        height: iconSize,
+        color: textColor,
+        fontSize: iconSize,
+        display: 'inline-flex',
         alignItems: 'center',
-        justifyContent: 'center',
-        width: '23px',
-        height: '23px'
+        justifyContent: 'center'
       }}>
-        <item.icon size={23} color={textColor} />
-      </div>
+        <item.icon weight="medium" />
+      </span>
       
       {/* Label text */}
       <span style={{

@@ -4,26 +4,24 @@ import { Meta } from '@storybook/blocks';
 
 # Icons Usage Guide
 
-The Glide Components library includes 1,100+ beautiful icons from UntitledUI, providing consistent iconography across your applications.
+The Glide Components library uses Apple's SF Symbols, providing native, consistent iconography across your applications.
 
 ## Installation & Setup
 
 ### React/Web Projects
 ```bash
-npm install @untitledui/icons
+npm install @serviette/sf-symbols-react
 ```
 
 ```tsx
-import Home from "@untitledui/icons/Home01";
-import User from "@untitledui/icons/User01";
-import Settings from "@untitledui/icons/Settings01";
+import { House, Person, Gear } from "@serviette/sf-symbols-react";
 
 function MyComponent() {
   return (
     <div>
-      <Home size={24} color="#000" />
-      <User size={20} />
-      <Settings />
+      <House width={24} height={24} fill="#000" />
+      <Person width={20} height={20} />
+      <Gear width={16} height={16} />
     </div>
   );
 }
@@ -80,9 +78,9 @@ GlideIcon.checkmark(color: GlideColors.Success._500) // Green checkmark
 
 ```tsx
 // React Examples
-<Heart size={20} color="var(--color-error-500)" />
-<Star size={20} color="var(--color-warning-400)" />
-<Check size={20} color="var(--color-success-500)" />
+<Heart width={20} height={20} fill="var(--color-error-500)" />
+<Star width={20} height={20} fill="var(--color-warning-400)" />
+<Checkmark width={20} height={20} fill="var(--color-success-500)" />
 ```
 
 ### Text Colors
@@ -143,16 +141,16 @@ HStack(spacing: 8) {
 
 ## Available Icon Categories
 
-The UntitledUI icon library includes comprehensive coverage across:
+SF Symbols provides comprehensive coverage across:
 
-- **Interface**: Navigation, controls, actions (arrows, plus, minus, x, check)
-- **Communication**: Mail, phone, chat, notifications
-- **Media**: Play, pause, volume, camera, image
-- **Files**: Documents, folders, upload, download
-- **Users**: Person, groups, profile, authentication
-- **Business**: Charts, analytics, finance, shopping
-- **Technology**: Code, database, cloud, devices
-- **General**: Home, settings, search, calendar, clock
+- **Interface**: Navigation, controls, actions (chevrons, plus, minus, xmark, checkmark)
+- **Communication**: Envelope, phone, message, bell notifications
+- **Media**: Play, pause, speaker, camera, photo
+- **Files**: Doc, folder, arrow.up.to.line, arrow.down.to.line
+- **Users**: Person, person.2, person.circle, lock
+- **Business**: Chart, gauge, cart, creditcard
+- **Technology**: Gear, server, wifi, devices
+- **General**: House, magnifyingglass, calendar, clock
 
 ## Best Practices
 
@@ -178,11 +176,12 @@ The UntitledUI icon library includes comprehensive coverage across:
 
 ## Icon Naming Convention
 
-UntitledUI icons follow a systematic naming pattern:
+SF Symbols follow Apple's systematic naming pattern:
 
-- Base name describes the concept: `home`, `user`, `mail`
-- Numbered variants: `home-01`, `home-02` (different styles)
-- State variants: `bell-off`, `eye-off` (disabled states)
-- Action variants: `plus-circle`, `minus-square` (combined actions)
+- Base name describes the concept: `house`, `person`, `envelope`
+- Style variants: `house.fill`, `person.circle`, `envelope.open`
+- State variants: `bell.slash`, `eye.slash` (disabled states)
+- Action variants: `plus.circle`, `minus.square` (combined actions)
+- Directional variants: `chevron.left`, `arrow.up.to.line`
 
-This makes it easy to find the right icon and understand variations available.
+This makes it easy to find the right icon and understand variations available while maintaining consistency with Apple's design system.

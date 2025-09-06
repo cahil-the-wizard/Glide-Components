@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
-import { Plus } from "@untitledui/icons/Plus";
-import { Settings02 } from "@untitledui/icons/Settings02";
-import { Microphone01 } from "@untitledui/icons/Microphone01";
-import { ArrowUp } from "@untitledui/icons/ArrowUp";
+import { PlusIcon as Plus } from "@serviette/sf-symbols-react";
+import { MicIcon as Microphone01 } from "@serviette/sf-symbols-react";
+import { ArrowUpIcon as ArrowUp } from "@serviette/sf-symbols-react";
+import { SemanticIconSizes } from '../design-tokens/iconSizes';
 
 const GlideInput = ({ 
   placeholder = "Outline the task you are struggling with",
@@ -16,6 +16,7 @@ const GlideInput = ({
   onChange?: (value: string) => void;
   onSubmit?: () => void;
 }) => {
+  const iconSize = SemanticIconSizes.input; // 18px
   return (
     <div style={{
       display: 'flex',
@@ -111,22 +112,19 @@ const GlideInput = ({
               border: 'none',
               cursor: 'pointer'
             }}>
-              <Plus size={18} color="var(--color-gray-dark-900)" />
+              <span style={{ 
+                width: iconSize, 
+                height: iconSize, 
+                color: "var(--color-gray-dark-900)",
+                fontSize: iconSize,
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}>
+                <Plus weight="medium" />
+              </span>
             </button>
             
-            {/* Tune button */}
-            <button style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px',
-              padding: '12px',
-              background: 'var(--color-gray-light-100)',
-              borderRadius: '38px',
-              border: 'none',
-              cursor: 'pointer'
-            }}>
-              <Settings02 size={18} color="var(--color-gray-light-600)" />
-            </button>
           </div>
           
           <div style={{
@@ -145,7 +143,17 @@ const GlideInput = ({
               border: 'none',
               cursor: 'pointer'
             }}>
-              <Microphone01 size={18} color="var(--color-gray-dark-900)" />
+              <span style={{ 
+                width: iconSize, 
+                height: iconSize, 
+                color: "var(--color-gray-dark-900)",
+                fontSize: iconSize,
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}>
+                <Microphone01 weight="medium" />
+              </span>
             </button>
             
             {/* Send button */}
@@ -162,7 +170,17 @@ const GlideInput = ({
                 cursor: 'pointer'
               }}
             >
-              <ArrowUp size={18} color="var(--color-gray-light-25)" />
+              <span style={{ 
+                width: iconSize, 
+                height: iconSize, 
+                color: "var(--color-gray-light-25)",
+                fontSize: iconSize,
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}>
+                <ArrowUp weight="medium" />
+              </span>
             </button>
           </div>
         </div>

@@ -2,8 +2,10 @@ import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 
 // Mock SwiftUI Button component for Storybook
-import { Asterisk01 } from "@untitledui/icons/Asterisk01";
-import { X } from "@untitledui/icons/X";
+import { AsteriskIcon as Asterisk } from "@serviette/sf-symbols-react";
+import { XmarkIcon as X } from "@serviette/sf-symbols-react";
+import { IconWrapper } from '../utils/iconUtils';
+import { SemanticIconSizes } from '../design-tokens/iconSizes';
 
 const GlideButton = ({ 
   children, 
@@ -18,8 +20,8 @@ const GlideButton = ({
   variant?: 'primary' | 'secondary' | 'tertiary' | 'outline' | 'ghost';
   size?: 'small' | 'medium';
   disabled?: boolean;
-  leadingIcon?: React.ComponentType<{ size?: number; color?: string }>;
-  trailingIcon?: React.ComponentType<{ size?: number; color?: string }>;
+  leadingIcon?: React.ComponentType<{ weight?: string; className?: string }>;
+  trailingIcon?: React.ComponentType<{ weight?: string; className?: string }>;
   onClick?: () => void;
 }) => {
   const baseStyles = {
@@ -71,7 +73,7 @@ const GlideButton = ({
   };
 
   const iconColor = variantStyles[variant].color;
-  const iconSize = 18;
+  const iconSize = SemanticIconSizes.button; // 16px
 
   return (
     <button
@@ -101,9 +103,33 @@ const GlideButton = ({
         }
       }}
     >
-      {leadingIcon && React.createElement(leadingIcon, { size: iconSize, color: iconColor })}
+      {leadingIcon && (
+        <span style={{ 
+          width: iconSize, 
+          height: iconSize, 
+          color: iconColor,
+          fontSize: iconSize,
+          display: 'inline-flex',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}>
+          {React.createElement(leadingIcon, { weight: 'medium' })}
+        </span>
+      )}
       {children}
-      {trailingIcon && React.createElement(trailingIcon, { size: iconSize, color: iconColor })}
+      {trailingIcon && (
+        <span style={{ 
+          width: iconSize, 
+          height: iconSize, 
+          color: iconColor,
+          fontSize: iconSize,
+          display: 'inline-flex',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}>
+          {React.createElement(trailingIcon, { weight: 'medium' })}
+        </span>
+      )}
     </button>
   );
 };
@@ -177,7 +203,7 @@ export const Ghost: Story = {
 export const WithLeadingIcon: Story = {
   args: {
     variant: 'primary',
-    leadingIcon: Asterisk01,
+    leadingIcon: Asterisk,
     children: 'Launch',
   },
 };
@@ -193,7 +219,7 @@ export const WithTrailingIcon: Story = {
 export const WithBothIcons: Story = {
   args: {
     variant: 'primary',
-    leadingIcon: Asterisk01,
+    leadingIcon: Asterisk,
     trailingIcon: X,
     children: 'Button',
   },
@@ -218,37 +244,37 @@ export const AllVariants: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', alignItems: 'flex-start' }}>
       <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-        <GlideButton variant="primary" leadingIcon={Asterisk01} trailingIcon={X}>
+        <GlideButton variant="primary" leadingIcon={Asterisk} trailingIcon={X}>
           Primary
         </GlideButton>
-        <GlideButton variant="secondary" leadingIcon={Asterisk01} trailingIcon={X}>
+        <GlideButton variant="secondary" leadingIcon={Asterisk} trailingIcon={X}>
           Secondary
         </GlideButton>
-        <GlideButton variant="tertiary" leadingIcon={Asterisk01} trailingIcon={X}>
+        <GlideButton variant="tertiary" leadingIcon={Asterisk} trailingIcon={X}>
           Tertiary
         </GlideButton>
-        <GlideButton variant="outline" leadingIcon={Asterisk01} trailingIcon={X}>
+        <GlideButton variant="outline" leadingIcon={Asterisk} trailingIcon={X}>
           Outline
         </GlideButton>
-        <GlideButton variant="ghost" leadingIcon={Asterisk01} trailingIcon={X}>
+        <GlideButton variant="ghost" leadingIcon={Asterisk} trailingIcon={X}>
           Ghost
         </GlideButton>
       </div>
       
       <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-        <GlideButton variant="primary" size="small" leadingIcon={Asterisk01} trailingIcon={X}>
+        <GlideButton variant="primary" size="small" leadingIcon={Asterisk} trailingIcon={X}>
           Small
         </GlideButton>
-        <GlideButton variant="secondary" size="small" leadingIcon={Asterisk01} trailingIcon={X}>
+        <GlideButton variant="secondary" size="small" leadingIcon={Asterisk} trailingIcon={X}>
           Small
         </GlideButton>
-        <GlideButton variant="tertiary" size="small" leadingIcon={Asterisk01} trailingIcon={X}>
+        <GlideButton variant="tertiary" size="small" leadingIcon={Asterisk} trailingIcon={X}>
           Small
         </GlideButton>
-        <GlideButton variant="outline" size="small" leadingIcon={Asterisk01} trailingIcon={X}>
+        <GlideButton variant="outline" size="small" leadingIcon={Asterisk} trailingIcon={X}>
           Small
         </GlideButton>
-        <GlideButton variant="ghost" size="small" leadingIcon={Asterisk01} trailingIcon={X}>
+        <GlideButton variant="ghost" size="small" leadingIcon={Asterisk} trailingIcon={X}>
           Small
         </GlideButton>
       </div>

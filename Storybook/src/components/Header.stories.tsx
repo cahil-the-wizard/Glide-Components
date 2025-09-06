@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { Bell01 } from "@untitledui/icons/Bell01";
+import { BellIcon as Bell } from "@serviette/sf-symbols-react";
 
 const GlideHeader = ({ 
   onLogoTap,
@@ -64,7 +64,17 @@ const GlideHeader = ({
             cursor: 'pointer'
           }}
         >
-          <Bell01 size={20} color="var(--color-gray-dark-900)" />
+          <span style={{ 
+            width: 20, 
+            height: 20, 
+            color: "var(--color-gray-dark-900)",
+            fontSize: 20,
+            display: 'inline-flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}>
+            <Bell weight="medium" />
+          </span>
         </button>
         
         {/* Account Button */}
